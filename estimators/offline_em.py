@@ -14,7 +14,7 @@ class OfflineEM:
 
     def fit_from_logs(
         self,
-        log_P_yx: NDArray[np.float64],   # shape (K, T)
+        log_P_yx: NDArray[np.float64],
         theta0: NDArray[np.float64] | None = None,
         return_path: bool = False,
     ) -> NDArray[np.float64]:

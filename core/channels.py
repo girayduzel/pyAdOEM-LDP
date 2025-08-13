@@ -48,6 +48,8 @@ def make_G_rrrr(K: int, k0: int, eps1: float, eps2: float) -> NDArray[np.float64
 
     return G
 
+# TODO bound k0 by K-1
+
 
 def make_p_yx_vec(
     y: int,
