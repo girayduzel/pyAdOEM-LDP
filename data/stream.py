@@ -52,7 +52,7 @@ class CategoricalStream(Iterable[int]):
     # Iterator
     def __iter__(self) -> Iterator[int]:
         remaining = self.T
-        batch = 4096
+        batch = 128
         while remaining > 0:
             n = min(batch, remaining)
             xs = self.rng.choice(self.K, size=n, p=self.theta_true)
