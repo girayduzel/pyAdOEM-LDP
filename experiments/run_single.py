@@ -2,9 +2,9 @@ from AdOEM_LDP.experiments.runner import RunnerConfig, SingleRunner
 
 cfg = RunnerConfig(
     K=50, T=100*100, eps=1.0,
-    mech="SRR",              
+    mech="RRRR",              
     hashing_enabled=True,     
-    online="mle_rr",         
+    online="online_em",         
     offline="offline_em",
     eps1_coeff_vec=[0.8, 0.9, 1.0],
     P_int_EM=100, M_int_EM=50,
