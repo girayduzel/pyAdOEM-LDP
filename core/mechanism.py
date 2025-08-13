@@ -1,4 +1,4 @@
-#aAdOEM_LD/core/mechanism.py
+#AdOEM_LDP/core/mechanism.py
 "Abstract class for LDP mechanisms."
 
 from __future__ import annotations

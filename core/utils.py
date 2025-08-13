@@ -1,4 +1,4 @@
-#adAdOEM_LDP/core/utils.py
+#AdOEM_LDP/core/utils.py
 """Utility functions"""
 
 from __future__ import annotations

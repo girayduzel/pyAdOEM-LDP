@@ -60,7 +60,6 @@ def make_p_yx_vec(
     """
     Generates one row of the transition matrix G.
     """
-
     exp_eps1 = math.exp(eps1)
     exp_eps2 = math.exp(eps2)
 

@@ -19,12 +19,12 @@ class Hashing:
 
     _H_vec: NDArray[np.int_] | None = None
 
-    # Create an instance of the class with identity matrix as the hashing matrix
+    # Create an instance of the class for no hashing
     @classmethod
     def identity(cls, K: int, rng: np.random.Generator) -> "Hashing":
         return cls(K=K, K_prime=K, enabled=False, rng=rng)
 
-    # Generate a new hashing matrix at every time step
+    # Generate a new hashing vector at every time step
     def new_round(self) -> NDArray[np.int_]:
         if not self.enabled:
             self._H_vec = np.arange(self.K, dtype=np.int_)
@@ -37,7 +37,7 @@ class Hashing:
 
     def project_row_to_K(self, row_Kp: NDArray[np.float64]) -> NDArray[np.float64]:
         """
-        Project hashed vector to original domain
+        Project hashed likelihood vector to original domain: p_yx = p_yx_g(H)
         """
         H = self.current_H()
         return row_Kp[H].astype(np.float64, copy=False)
