@@ -48,7 +48,7 @@ class QPAccumulators:
 @dataclass
 class QPSolver:
     """
-    Solve min 0.5 xT M x + vT x   s.t. x >= 0, 1Tx = 1  
+    Solve the quadratic programming problem with constraints to yield a consistent estimator  
     """
     stabilizer: float = 1e-10
     ftol: float = 1e-5

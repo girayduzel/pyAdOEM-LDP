@@ -9,7 +9,7 @@ import numpy as np
 from numpy.typing import NDArray
 
 
-#Transition Matrices
+# Transition Matrices
 def make_G_srr(K: int, eps: float) -> NDArray[np.float64]:
     """
     Generates the transition matrix for SRR.

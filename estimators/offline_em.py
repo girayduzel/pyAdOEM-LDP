@@ -21,7 +21,6 @@ class OfflineEM:
         K, T = log_P_yx.shape
 
         theta = (np.full(K, 1.0 / K) if theta0 is None else np.asarray(theta0, dtype=np.float64)).copy()
-        theta = np.maximum(theta, 1e-300)
         Theta_path = np.zeros((self.M, K), dtype=np.float64) if return_path else None
 
         for m in range(self.M):
@@ -34,7 +33,6 @@ class OfflineEM:
 
             # M-step
             theta = Pi_post.mean(axis=1)
-            theta = np.maximum(theta, 1e-300)
             if Theta_path is not None:
                 Theta_path[m] = theta
 

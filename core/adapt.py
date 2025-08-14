@@ -47,7 +47,10 @@ class RRRRPolicy:
             return self.G_warmup
 
         theta_hat_K = self._normalize(theta_hat_K)
-        theta_tilde_K = dirichlet_perturb(theta_hat_K, self.dirichlet_scale, t, self.rng)
+        if t==1:
+            theta_tilde_K = theta_hat_K
+        else:
+            theta_tilde_K = dirichlet_perturb(theta_hat_K, self.dirichlet_scale, t-1, self.rng)
         theta_tilde_g = hashing.compress_to_K_prime(theta_tilde_K)
 
         # Permutation
@@ -72,7 +75,7 @@ class RRRRPolicy:
     def _in_warmup(self, t: int) -> bool:
         if self.total_T is None:
             return False
-        return t <= int(self.warmup_fraction * self.total_T)
+        return t < int(self.warmup_fraction * self.total_T)
 
     def _normalize(self, v: NDArray[np.float64]) -> NDArray[np.float64]:
         v = np.asarray(v, dtype=np.float64).ravel()
